@@ -29,10 +29,10 @@ makeCacheMatrix <- function(x = matrix()) {
 ## The inverse is retrieved from the cache
 
 cacheSolve <- function(x, ...) {        ## Return a matrix that is the inverse of 'x'
-  inv <- x$getinv() # See if an inverse exists in the cache. Function is called from makeCahceMatrix
-  if(!is.null(inv)){ # Has cacheSolve been run?
+  inv <- x$getinv() # See if an inverse exists in the cache. Function is called from makeCacheMatrix
+  if(!is.null(inv)){ 
     message ("Inverse exists. Cache called.")
-    if(x$set() == x$get()) { # Evaluate the state of the matrix: is it the same as before or it has changed
+    if(x$set() == x$get()) { 
       return(inv) # If the matrix has not changed the inverse is returned
     }
     y <- x$get() # Run the get function to get the input matrix
